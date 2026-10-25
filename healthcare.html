@@ -1,0 +1,171 @@
+<section class="wrapper style1">
+    <div class="container">
+
+        <header>
+            <h2>Patient &amp; Service Utilisation</h2>
+            <p>
+         This project explores synthetic hospital encounter data to understand healthcare service utilisation, patient activity, repeat visits, inpatient readmissions, claim costs and payer coverage.<br>
+         Developed in Power BI, the three-page report brings patient utilisation and financial information into a single interactive dashboard. It demonstrates how data modelling, DAX measures and visual analytics can be used to examine operational patterns, identify unusual trends and support evidence-based questions about healthcare demand and costs.
+            </p>
+        </header>
+
+        <h3>Business Problem</h3>
+</div>
+
+        <p>
+      Healthcare organisations need reliable visibility into how patients use services, how patient visits change over time, and how recorded healthcare costs are distributed across payers and service types.
+    Without a consolidated analytical view, it can be difficult to compare service demand, understand repeat utilisation, investigate unusual changes in activity and assess the relationship between claim costs and recorded payer coverage.
+    The purpose of this project was to transform raw healthcare records into an interactive reporting solution that makes these patterns easier to explore.
+        </p>
+        <h3>Project Objectives</h3>
+        <p>The analysis was designed to answer five key questions:
+    <ul> 
+        <li> How does healthcare utilisation change over time?</li>
+        <li>Which visit types account for the greatest service volume?</li>
+        <li>How are patients distributed by visit frequency, and what patterns exist in repeat utilisation?</li>   
+        <li>What patterns appear in inpatient readmissions within a 30-day interval?</li>   
+        <li>How do recorded claim costs, payer coverage and uncovered costs vary across payers and service types?</li>   
+    </ul>    
+    </p> 
+    
+        <h3>Dataset</h3>
+        <p>
+       The project uses synthetic hospital records covering encounters from 2011 to January 2022. The supplied dataset includes approximately 974 patients, 27,900 encounters, 47,700 procedure records, 10 payer records and one hospital organisation.
+        The data includes patient demographics, visit dates and classifications, claim costs, payer coverage, encounter reasons and procedure information.
+        The records are synthetic and are used for portfolio analysis and demonstration. They should not be interpreted as a representation of actual hospital performance or used to draw clinical conclusions.
+        </p>
+        <h3>Tools and Technical Approach</h3>
+        <p>Power BI Desktop was used to prepare the data model, create calculated columns and DAX measures, build interactive visuals and design the report layout.<br>
+            <br>Data modelling: Patient, payer and organisation information was connected to encounter records, while procedure records were linked to their associated encounters. A date table supports time-based reporting.<br>
+            <br>DAX: Measures were created to calculate encounter volumes, distinct patients, average visits per patient, repeat utilisation, claim costs, payer coverage and exploratory 30-day inpatient readmission metrics.
+        Visualisation and interaction:<br><br> KPI cards, line charts, stacked bar and column charts, horizontal bar charts and a donut chart were combined with year, visit-type and payer slicers. Page navigation and reset controls make the report easier to explore.</p>
+ <h3>Dashboard Design and Analysis</h3>
+ <h4>Page 1 - Healthcare Utilisation Overview</h4>
+ <br>
+ <div class="dashboard-container">
+    <img src="images/healthcare utilisation.png"
+         alt="Healthcare Utilisation">
+</div><br>
+  <p>This page provides an executive summary of patient activity and service demand.<br>
+Key performance indicators
+  <ul> 
+        <li>Total Patients: Counts distinct patients represented in the selected data.</li>
+        <li>Total Visits: Counts recorded visits.</li>
+        <li>Average Visits per Patient: Divides total visits by distinct patients to provide an overall utilisation measure.</li>   
+        <li>Inpatient Visits: Counts visits classified as inpatient.</li>   
+        <li>Total Claim Cost: Sums the recorded claim costs for the selected reporting context.</li>   
+    </ul> 
+    </p>
+    <p>
+    Visuals
+  <ul> 
+        <li>Monthly Healthcare Visits: Tracks visit volume over time and highlights changes in demand, including unusual peaks that warrant further investigation.</li>
+        <li>Visit Distribution by Age Group and Year (%): Compares the proportion of visits contributed by each age group across years. Age is calculated at the date of visit.</li>
+        <li>Visits by Service Type: Ranks visit categories by volume, making differences in recorded service utilisation easy to compare.</li>   
+        <li>Monthly Active Patients: Shows the number of distinct patients with visits each month, complementing the visit trend.</li>   
+    </ul> 
+    Together, these visuals help distinguish changes in encounter volume from changes in the number of active patients.
+    </p>
+    <h4>Page 2 - Patient & Service Utilisation</h4>
+ <br>
+ <div class="dashboard-container">
+    <img src="images/patient-service utilisation.png"
+         alt="Patient and Service Utilisation">
+</div><br>
+  <p>This page examines repeat visits, service utilisation and an exploratory inpatient re-admission measure.<br>
+    Key performance indicators
+  <ul> 
+        <li>Total Patients: Counts distinct patients in the current filter context.</li>
+        <li>Average Visits per Patient: Summarises visit frequency per patient.</li>
+        <li>Patients with Repeat Visits: Counts patients with more than one recorded visit.</li>   
+        <li>Repeat Visit %: Measures the proportion of distinct patients with repeat visits.</li>   
+        <li>30-Day Readmission Rate: Summarises the result of the project's defined inpatient readmission calculation.</li>   
+    </ul> 
+    </p>
+    <p>
+    Visuals
+  <ul> 
+        <li>Patient Distribution by Visit Frequency: Groups patients into visit-frequency bands, showing the distribution from single visits through to very frequent recorded utilisation.</li>
+        <li>Healthcare Utilisation by Year: Uses stacked columns to compare annual encounter volumes and the contribution of each service type.</li>
+        <li>30-Day Inpatient Readmission Rate by Year: Examines inpatient encounters that meet the project's 30-day interval definition.</li>   
+        <li>Average Visits per Patient by Year: Compares the average number of visits per patient across reporting years.</li> 
+        <li>Patients with Repeat Encounters by Service Type: Compares the number of patients with repeat visits across service categories.</li>     
+    </ul> 
+    The repeat-utilisation analysis is distinct from the readmission analysis. Repeat encounters can occur in ambulatory, outpatient or other service settings; the readmission measure focuses on subsequent inpatient encounters following a prior inpatient discharge.<br>
+The readmission metric is exploratory and based on the available synthetic encounter records. It is not presented as an official clinical readmission rate.
+    </p>
+    <h4>Page 3 - Cost and Payer Coverage</h4>
+ <br>
+ <div class="dashboard-container">
+    <img src="images/cost-payer-coverage.png"
+         alt="Cost and Payer Coverage">
+</div><br>
+  <p>This page examines the financial information available in the encounter and payer records.<br>
+    Key performance indicators
+  <ul> 
+        <li>Total Claim Cost: Sums recorded claim costs.</li>
+        <li>Average Claim Cost: Calculates the mean recorded claim cost per encounter.</li>
+        <li>Payer Coverage: Sums the recorded amounts attributed to payers.</li>   
+        <li>Payer Coverage %: Divides recorded payer coverage by total claim cost.</li>   
+        <li>Uncovered Cost: Calculates the difference between total claim cost and recorded payer coverage.</li>   
+    </ul> 
+    </p>
+    <p>
+    Visuals
+  <ul> 
+        <li>Patients by Recorded Payer: Shows the number of patients associated with each payer in the encounter records. A patient may be associated with more than one payer over time.</li>
+        <li>Payer Coverage by Provider: Compares recorded coverage amounts across payers.</li>
+        <li>Payer Coverage Rate by Provider: Compares coverage as a proportion of recorded claim cost for each payer.</li>   
+        <li>Monthly Healthcare Claim Cost: Tracks changes in recorded claim costs over time and highlights unusual peaks for further investigation.</li> 
+        <li>Claim Cost: Payer Coverage vs Uncovered Cost: Separates recorded payer coverage from the remaining uncovered portion of claim costs.</li>
+        <li>Average Claim Cost by Visit Type: Compares the mean recorded claim cost across visit classifications.</li>          
+    </ul> 
+   The financial analysis helps identify where recorded costs and coverage are concentrated. The coverage figures describe the supplied data and do not confirm actual reimbursements, collections or final patient liability.
+    </p>
+     <h3>Project Highlights</h3>
+          <ul> 
+        <li>Ambulatory visits account for the largest share of recorded visits, followed by outpatient and urgent-care encounters.</li>
+        <li>Most patients have more than one recorded encounter, and the visit-frequency analysis identifies a smaller group with very high encounter counts.</li>
+        <li>Encounter volumes and active-patient counts vary over time, with particularly prominent peaks around 2014 and 2020.</li>   
+        <li>The supplied records show that payer coverage represents approximately 30.6% of total recorded claim costs, with the remaining amount classified as uncovered under the project's calculation.</li> 
+        <li>Recorded coverage amounts and coverage rates differ considerably across payers, suggesting that payer-level results should be examined in the context of the underlying records and measure definitions.</li>    
+    </ul> 
+    These are observations from synthetic data rather than conclusions about actual hospital operations. The unusual peaks and high encounter frequencies are treated as signals for further investigation, not automatically as errors or evidence of a specific cause.
+    <h3>Limitations and Data Considerations</h3>
+    <p>
+    This project uses synthetic data, so its patterns should not be generalised to real healthcare populations or hospital performance.
+The data contains no recorded visits for patients under 19 based on the calculated age-at-visit field. The age distribution should be interpreted within the limits of the supplied records.
+The final available period is January 2022, which is only a partial year. Therefore, January 2022 was excluded from full-year trend comparisons where appropriate.
+The 30-day inpatient readmission measure uses a project-defined calculation and has not been validated against an official clinical reporting methodology. Likewise, recorded payer coverage is not evidence of actual reimbursement.
+    </p>
+    <h3>Skills Demonstrated</h3>
+    <ul> 
+        <li>Power BI dashboard design and data visualisation</li>
+        <li>Data Modelling</li>
+        <li>DAX measures and calculated columns</li>   
+        <li>KPI development and interactive report design</li> 
+        <li>Data interpretation, validation and transparent reporting of limitations</li>    
+    </ul> 
+  <p><strong>Tools:</strong> Power BI Desktop, Power Query, DAX</p>
+
+        <h3>Project Outcome</h3>
+
+        <p>
+      The completed report provides a consolidated, interactive view of synthetic healthcare utilisation and cost information across three analytical pages. It demonstrates the ability to move from raw records to a structured data model, define meaningful measures, visualise operational and financial patterns, and communicate findings with appropriate caveats.
+
+The project is intended as a demonstration of Power BI, analytical reasoning and reporting capability—not as a clinical decision-support tool or an assessment of a real healthcare organisation.
+        </p>
+<p>
+    <strong>Dataset disclaimer:</strong> This report uses demonstration data for portfolio purposes. It is not presented as the operational data or performance of any organisation.
+    The names, records, and figures are illustrative.
+  </p>
+  <p>
+    <strong>Created by:</strong> Paula Okafor 
+
+    <strong>Dashboard and original report design:</strong>
+    &copy; 2026 Paula Okafor. All rights reserved.
+    Dataset: Demonstration data; see disclaimer.
+  </p>
+</section>
+</section>
+<li><a href="index.html" class="button">Home</a></li>
